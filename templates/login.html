@@ -1,0 +1,56 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>hello</title>
+	<link href='http://fonts.googleapis.com/css?family=Roboto:400,300,100' rel='stylesheet' type='text/css'>
+	<link rel="stylesheet" href="{% static "/css/bootstrap.css" %}">
+	<link rel="stylesheet" href="{% static "/css/lineicons.css" %}">
+	<link rel="stylesheet" href="{% static "/css/styles.css" %}">
+</head>
+<body>
+	<div class="main-wrapper">
+		<div class="main-wrapper-bg" id="main-wrapper-bg"></div>
+		<canvas id="my-canvas" class="my-canvas"></canvas>
+		<div class="main-wrapper-mask"></div>
+		<div class="main-container">
+			<div class="container">
+				<div class="row row-main">
+					<div class="col-md-4 col">
+						<h1 class="main-title">Welcome</h1>
+                        <p>用深情填满你枪膛</p>
+
+                        <p>再次隐没于喧嚷</p>
+
+                        <p>夹竹桃与不可触的刺猬</p>
+
+                            <p>甘愿成为风月乖巧的傀儡</p>
+					</div>
+					<div class="col-md-4 col">
+						<h1 class="main-title">Login</h1>
+						<form class="main-form" method="post">
+							<div class="form-group">
+								<input type="text" class="form-control" placeholder="Username" name="username">
+								<div class="form-icon lin lin-user"></div>
+							</div>
+							<div class="form-group">
+								<input type="password" class="form-control" placeholder="Password" name="password">
+								<div class="form-icon lin lin-key"></div>
+							</div>
+							<input type="submit"  value="Log in" class="btn btn-default btn-ghost">
+                            {% csrf_token %}
+						</form>
+
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<script src="{% static "/js/jquery.js"%}"></script>
+	<script src="{% static "/js/bootstrap.js"%}"></script>
+	<script src="{% static "/js/canvas.js"%}"></script>
+	<script src="{% static "/js/script.js"%}"></script>
+</body>
+</html>

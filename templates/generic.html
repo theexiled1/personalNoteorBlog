@@ -1,0 +1,100 @@
+{% load static %}
+<!DOCTYPE HTML>
+<!--
+	Editorial by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
+	<head>
+		<title></title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href={% static "assets/css/main.css"%} />
+	</head>
+	<body class="is-preload">
+
+		<!-- Wrapper -->
+			<div id="wrapper">
+
+				<!-- Main -->
+					<div id="main">
+						<div class="inner">
+
+							<!-- Header -->
+								<header id="header">
+									<a href="/update" class="logo" style="font-size: initial"><strong>ZHANGYU</strong> TYUT</a>
+								</header>
+
+							<!-- Content -->
+								<section>
+                                    {% autoescape off %}
+                                        {{ message.text }}
+                                    {% endautoescape %}
+
+
+                                    <span class="image main"><img src="../media/{{ message.pic }}" alt="" /></span>
+								</section>
+						</div>
+					</div>
+
+				<!-- Sidebar -->
+					<div id="sidebar">
+						<div class="inner">
+
+							<!-- Search -->
+								<section id="search" class="alt">
+									<p id="query">你不是我的诗 正如我不是你的梦</p>
+								</section>
+                                <section>
+                                    <nav id="menu">
+                                    <header class="major">
+										<h2>机器人</h2>
+									</header>
+                                        <a href="/robot" style="color: #FF6A6A"><button>点我</button></a>
+                                    </nav>
+                                </section>
+							<!-- Menu -->
+								<nav id="menu">
+									<header class="major">
+										<h2>catalog</h2>
+									</header>
+									<ul>
+                                        {% for item in all %}
+                                            <li><a style="font-size: initial" href="/index?id={{item.id}}"><p>{{ item.tittle }}</p><h>{{ item.time }}</h></a></li>
+										{% endfor %}
+									</ul>
+								</nav>
+							<!-- Section -->
+								<section>
+									<header class="major">
+										<h2>于云顶</h2>
+									</header>
+									<p>白驹过隙又何短</p>
+
+										<p>人生慢慢又何长</p>
+
+										<P>相濡以沫又何妨</P>
+
+										<P>相忘江湖又何叹</p>
+								</section>
+
+							<!-- Footer -->
+								<footer id="footer">
+									<p class="copyright">&copy; Untitled. All rights reserved. Demo Images: <a href="https://unsplash.com">Unsplash</a>. Design: <a href="https://html5up.net">HTML5 UP</a>.</p>
+								</footer>
+
+						</div>
+					</div>
+
+			</div>
+
+		<!-- Scripts -->
+			<script src={% static "assets/js/jquery.min.js"%}></script>
+			<script src={% static "assets/js/browser.min.js"%}></script>
+			<script src={% static "assets/js/breakpoints.min.js"%}></script>
+			<script src={% static "assets/js/util.js"%}></script>
+			<script src={% static "assets/js/main.js"%}></script>
+
+	</body>
+</html>

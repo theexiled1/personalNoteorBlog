@@ -1,0 +1,99 @@
+{% load static %}
+<!DOCTYPE HTML>
+<!--
+	Editorial by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
+	<head>
+		<title>update</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href={% static "assets/css/main.css" %} />
+        <script src="http://libs.baidu.com/jquery/2.0.0/jquery.js"></script>
+
+	</head>
+	<body class="is-preload">
+
+		<!-- Wrapper -->
+			<div id="wrapper">
+
+				<!-- Main -->
+					<div id="main">
+						<div class="inner">
+
+							<!-- Header -->
+								<header id="header">
+									<a href="/index" class="logo"><strong>ZHANGYU</strong> TYUT</a>
+									
+								</header>
+
+							<!-- Content -->
+								<section>
+
+									<!-- Form -->
+
+
+                                <form method="get" action="#" id="form1">
+
+                            <h style="font-size: initial;">想说什么呢</h>
+
+                        <div class="col-12">
+                                            <textarea name="text" id="demo-message" placeholder="Enter your message" rows="2"></textarea>
+                                        </div>
+
+                                        <div class="col-12">
+                                            <ul class="actions">
+                                                <li><input type="button" onClick="aj();" value="Send" class="primary"  /></li>
+                                                <li><input  id="re" type="reset" value="Reset" /></li>
+                                            </ul>
+                                        </div>
+
+                                </form>
+
+								</section>
+								<section>
+									<div class="col-12" style="font-size: initial;">
+										<ul id="kk">
+
+										</ul>
+									</div>
+								</section>
+
+						</div>
+					</div>
+
+			
+
+			</div>
+
+		<!-- Scripts -->
+            <script>
+             function aj() {
+                 $.ajax({
+            //几个参数需要注意一下
+                type: "GET",//方法类型
+                dataType: "json",//预期服务器返回的数据类型
+                url: "" ,//url
+                data: $('form').serialize(),
+                success: function (data) {
+                    $('#re').trigger('click');
+                    text = "<li style=\"font-size: initial;\"> 大哥："+data['big']+"</li>"+
+                            "<li style=\"font-size: initial;\"> 小弟："+data['small']+"</li>"
+                    $('#kk').append(text)
+
+                }
+
+            })
+             }
+
+            </script>
+			<script src={% static "assets/js/jquery.min.js" %}></script>
+			<script src={% static "assets/js/browser.min.js" %}></script>
+			<script src={% static "assets/js/breakpoints.min.js"%}></script>
+			<script src={% static "assets/js/util.js"%}></script>
+			<script src={% static "assets/js/main.js" %}></script>
+
+	</body>
+</html>

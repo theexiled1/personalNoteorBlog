@@ -1,0 +1,138 @@
+{% load static %}
+<!DOCTYPE HTML>
+<!--
+	Editorial by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
+	<head>
+		<title>update</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href={% static "assets/css/main.css" %}/>
+        <link rel="stylesheet" type="text/css" href={% static "simditor-2.3.19/styles/simditor.css" %} />
+
+        <script type="text/javascript" src={% static "/simditor-2.3.19/site/assets/scripts/jquery.min.js" %}></script>
+        <script type="text/javascript" src= {% static "/simditor-2.3.19/site/assets/scripts/module.js" %}></script>
+        <script type="text/javascript" src={% static "/simditor-2.3.19/site/assets/scripts/hotkeys.js" %}></script>
+        <script type="text/javascript" src={% static "/simditor-2.3.19/site/assets/scripts/uploader.js" %}></script>
+        <script type="text/javascript" src={% static "/simditor-2.3.19/site/assets/scripts/simditor.js" %}></script>
+		<style type="text/css">
+						.file {
+			    position: relative;
+			    display: inline-block;
+			    background: #FF6A6A;
+			    border: 1px solid #FF6A6A;
+			    border-radius: 4px;
+			    padding: 4px 32px;
+			    overflow: hidden;
+			    color: #FFFFFF;
+			    text-decoration: none;
+			    text-indent: 0;
+			    line-height: 20px;
+			    left: 0;
+			}
+			.file input {
+			    position: absolute;
+			    font-size: 100px;
+			    right: 0;
+			    top: 0;
+			    opacity: 0;
+			}
+			.file:hover {
+			    background: #FF8C69;
+			    border-color: #FF8C69;
+			    color: #FF8C69;
+			    text-decoration: none;
+			}
+		</style>
+        <script>
+            $(function() {
+                Simditor.locale = 'zh-CN';//设置中文
+                var editor = new Simditor({
+                    textarea: $('#demo-message'),  //textarea的id
+                    placeholder: 'Enter your message',
+                    toolbar: ['title', 'bold', 'italic', 'underline', 'strikethrough', 'fontScale', 'color', '|', 'ol', 'ul', 'blockquote', 'code', 'table', '|', 'link', 'hr', '|', 'indent', 'outdent', 'alignment'], //工具条都包含哪些内容
+                    pasteImage: false,//允许粘贴图片
+                    upload: {
+                        url: '', //文件上传的接口地址
+                        params: null, //键值对,指定文件上传接口的额外参数,上传的时候随文件一起提交
+                        fileKey: 'upload_file', //服务器端获取文件数据的参数名
+                        connectionCount: 3,
+                        leaveConfirm: '正在上传'
+                    }
+                })
+            });
+        </script>
+
+	</head>
+	<body class="is-preload">
+
+		<!-- Wrapper -->
+			<div id="wrapper">
+
+				<!-- Main -->
+					<div id="main">
+						<div class="inner">
+
+							<!-- Header -->
+								<header id="header">
+									<a href="#" class="logo"><strong>ZHANGYU</strong> TYUT</a>
+									
+								</header>
+
+							<!-- Content -->
+								<section>
+									
+									<!-- Form -->
+													
+
+                                <form method="post" action="#" enctype="multipart/form-data" >
+                                    <div>
+                            <a href="javascript:" class="file" >选择图片
+                                <input type="file" name="img" class="">
+                            </a>
+
+                        </div>
+                                    <h style="font-size: initial;">题目</h>
+
+                        <div class="col-12">
+                                            <textarea wrap="physical" name="title" id="demo-title" placeholder="Enter your message" rows="2"></textarea>
+                                        </div>
+
+                                        <!-- Break -->
+                                        <h style="font-size: initial;">内容</h>
+                                        <!-- Break -->
+                                        <div class="col-12">
+                                            <textarea name="message" id="demo-message" placeholder="Enter your message" rows="9"></textarea>
+                                        </div>
+                                        <!-- Break -->
+                                        <div class="col-12">
+                                            <ul class="actions">
+                                                <li><input type="submit" value="Send Message" class="primary" /></li>
+                                                <li><input type="reset" value="Reset" /></li>
+                                            </ul>
+                                        </div>
+                                    {% csrf_token %}
+                                </form>
+
+
+								</section>
+
+						</div>
+					</div>
+
+			
+
+			</div>
+
+		<!-- Scripts -->
+			<script src={% static "assets/js/jquery.min.js" %}></script>
+			<script src={% static "assets/js/browser.min.js" %}></script>
+			<script src={% static "assets/js/breakpoints.min.js" %}></script>
+			<script src={% static "assets/js/util.js" %}></script>
+			<script src={% static "assets/js/main.js" %}></script>
+
+	</body>
+</html>
